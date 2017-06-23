@@ -41,18 +41,18 @@ body {
 }
 
 .demo-1 {
-	background: #43434b;
+	background: #684da3;
 }
 
 a {
 	outline: none;
-	color: #cf4a5c;
+	color: white;
 	text-decoration: none;
 }
 
 a:hover, a:focus {
 	color: #69606b;
-	
+
 }
 
 .demo-4 a {

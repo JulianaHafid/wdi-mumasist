@@ -15,9 +15,16 @@ var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 var session      = require('express-session');
 
+
+//import , set the path for Service routes
+//var serviceRoutes =  require('./routes/service');
+
+
+
+//for debugging
 const debug = Debug('easy-node-authentication:app');
 
-
+//the mongodb path
 var configDB = require('./config/database.js');
 
 // configuration ===============================================================
@@ -31,23 +38,25 @@ app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser.json()); // get information from html forms
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//app.set('view engine', 'ejs'); // set up ejs for templating
-// app.set('view engine', 'ejs'); // set up ejs for templating
-// view engine setup
-//app.set('views', path.join(__dirname, 'views'));
-
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 app.use(express.static(path.join(__dirname, './public')));
 app.use(express.static(path.join(__dirname, './controllers')));
+
 /**
  * Controllers (route handlers).
  */
-// app.use('/seekhelp', require('./routes/form'));
-//const formController = require('./controllers/form');
+//
+//const serviceController = require('./controllers/service');
 // const userController = require('./controllers/user');
 // const apiController = require('./controllers/api');
 // const contactController = require('./controllers/contact');
+
+/*
+* Routes path here
+*/
+//app.use('/seekhelp',require('./routes/form'));
+//set the path for service routes
 
 
 // required for passport
@@ -60,12 +69,13 @@ app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
 
-// routes ======================================================================
+// Passport routes ======================================================================
 require('./routes/index.js')(app, passport); // load our routes and pass in our app and fully configured passport
-
+//require('./routes/service.js')(app);
+//app.use('/seekhelp', serviceRoutes);
 // launch ======================================================================
 app.listen(port);
-console.log('The magic happens on port ' + port);
+console.log('Running on port: ' + port);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

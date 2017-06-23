@@ -11,15 +11,16 @@ a {
       landing page
 *************************/
 .container {
-  background-color: #43434b;
+  background-color: #684da3;
 
 
 }
 
 header.header  {
-  background-image: url('/img/mum-multitask.jpeg');
+  /*background-image: url('/img/mum-multitask.jpeg');*/
   background-repeat: no-repeat;
-  background-color: rgba(242,236,247,0.5);
+  background-color: #684da3;
+
   margin-left: 60px;
   margin-top: 30px;
   height: 50px;
@@ -27,9 +28,8 @@ header.header  {
 }
 
 header.h1  {
-  background-image: url('/img/mum-multitask.jpeg');
+
   background-repeat: no-repeat;
-  background-color: rgba(242,236,247,0.5);
   margin-left: 60px;
   margin-top: 50px;
   height: 50px;
@@ -37,8 +37,14 @@ header.h1  {
 }
 
 div.info {
-  background-color: rgba(242,236,247,0.5);
-  height: 150px
+
+  height: 150px;
+  width: 800px;
+  border-radius: 10px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -90%);
 }
 
 div.info span {
@@ -57,36 +63,104 @@ div.info p {
   margin-top: 10px;
   margin-left: 10px;
   color: black;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/****animation - landing page*****/
+div.info p {
+  color: #fff;
+  font-family: Avenir Next, Helvetica Neue, Helvetica, Tahoma, sans-serif;
   font-size: 1em;
-  font-weight: bold;
+  font-weight: 200;
 }
-
-/*.jumbotron.index .container {
-  background-color: rgba(242,236,247,0.5);
-  height: 250px;
-  width: 700px;
-  left: 5px;
-  border-radius: 10px;
+div.info p span {
+  display: inline-block;
+  position: relative;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-perspective: 500;
+          perspective: 500;
+  -webkit-font-smoothing: antialiased;
 }
-
-
-.jumbotron.index .container span {
-  font-family: 'Pacifico', sans-serif;
-  text-decoration: underline;
-
+div.info p span::before,
+div.info p span::after {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: -1px;
+  -webkit-transform-origin: left top;
+          transform-origin: left top;
+  -webkit-transition: all ease-out 0.3s;
+  transition: all ease-out 0.3s;
+  content: attr(data-text);
 }
-
-.jumbotron.index .container p {
-  font-weight: bold;
+div.info p span::before {
+  z-index: 1;
+  color: rgba(0,0,0,0.2);
+  -webkit-transform: scale(1.1, 1) skew(0deg, 20deg);
+          transform: scale(1.1, 1) skew(0deg, 20deg);
 }
-
-
-.jumbotron.index .container .btn{
-  background-color: black;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  display: inline;
-}*/
+div.info p span::after {
+  z-index: 2;
+  color: #684da3;
+  text-shadow: -1px 0 1px #684da3, 1px 0 1px rgba(0,0,0,0.8);
+  -webkit-transform: rotateY(-40deg);
+          transform: rotateY(-40deg);
+}
+div.info p span:hover::before {
+  -webkit-transform: scale(1.1, 1) skew(0deg, 5deg);
+          transform: scale(1.1, 1) skew(0deg, 5deg);
+}
+div.info p span:hover::after {
+  -webkit-transform: rotateY(-10deg);
+          transform: rotateY(-10deg);
+}
+div.info p span + span {
+  margin-left: 0.3em;
+}
+@media (min-width: 20em) {
+  p {
+    font-size: 1em;
+  }
+  div.info p span::before,
+  div.info p span::after {
+    display: block;
+  }
+}
+@media (min-width: 30em) {
+  div.info p {
+    font-size: 2em;
+  }
+}
+@media (min-width: 40em) {
+  div.info p {
+    font-size: 3em;
+  }
+}
+@media (min-width: 60em) {
+  div.info p {
+    font-size: 70px;
+  }
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #684da3;
+}
 
 /**
 login page
@@ -139,9 +213,19 @@ login page
       background-image: url('https://image.freepik.com/free-vector/colorful-sticky-notes_23-2147492396.jpg');
     }
 
+    img.img-circle.img3 h1{
+      font-size: 20px;
+    }
+
     .row.text-center a:hover {
       text-decoration: none;
     }
+
+    .row.text-center a {
+      font-size: 18px;
+
+    }
+
 
 
     section{
@@ -262,4 +346,179 @@ seek-help
 
 #textarea_comments  {
   height: 250px;
+  font-size: 18px;
+}
+
+.control-label  {
+  margin-top: 10px;
+}
+
+/*radio button*/
+.funkyradio div {
+  clear: both;
+  overflow: hidden;
+}
+
+.funkyradio label {
+  width: 100%;
+  border-radius: 3px;
+  border: 1px solid #D1D3D4;
+  font-weight: normal;
+}
+
+.funkyradio input[type="radio"]:empty,
+.funkyradio input[type="checkbox"]:empty {
+  display: none;
+}
+
+.funkyradio input[type="radio"]:empty ~ label,
+.funkyradio input[type="checkbox"]:empty ~ label {
+  position: relative;
+  line-height: 2.5em;
+  text-indent: 3.25em;
+  margin-top: 2em;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.funkyradio input[type="radio"]:empty ~ label:before,
+.funkyradio input[type="checkbox"]:empty ~ label:before {
+  position: absolute;
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  content: '';
+  width: 2.5em;
+  background: #D1D3D4;
+  border-radius: 3px 0 0 3px;
+}
+
+.funkyradio input[type="radio"]:hover:not(:checked) ~ label,
+.funkyradio input[type="checkbox"]:hover:not(:checked) ~ label {
+  color: #888;
+}
+
+.funkyradio input[type="radio"]:hover:not(:checked) ~ label:before,
+.funkyradio input[type="checkbox"]:hover:not(:checked) ~ label:before {
+  content: '\2714';
+  text-indent: .9em;
+  color: #C2C2C2;
+}
+
+.funkyradio input[type="radio"]:checked ~ label,
+.funkyradio input[type="checkbox"]:checked ~ label {
+  color: #777;
+}
+
+.funkyradio input[type="radio"]:checked ~ label:before,
+.funkyradio input[type="checkbox"]:checked ~ label:before {
+  content: '\2714';
+  text-indent: .9em;
+  color: #333;
+  background-color: #ccc;
+}
+
+.funkyradio input[type="radio"]:focus ~ label:before,
+.funkyradio input[type="checkbox"]:focus ~ label:before {
+  box-shadow: 0 0 0 3px #999;
+}
+
+.funkyradio-default input[type="radio"]:checked ~ label:before,
+.funkyradio-default input[type="checkbox"]:checked ~ label:before {
+  color: #333;
+  background-color: #ccc;
+}
+
+.funkyradio-primary input[type="radio"]:checked ~ label:before,
+.funkyradio-primary input[type="checkbox"]:checked ~ label:before {
+  color: #fff;
+  background-color: #337ab7;
+}
+
+.funkyradio-success input[type="radio"]:checked ~ label:before,
+.funkyradio-success input[type="checkbox"]:checked ~ label:before {
+  color: #fff;
+  background-color: #5cb85c;
+}
+
+.funkyradio-danger input[type="radio"]:checked ~ label:before,
+.funkyradio-danger input[type="checkbox"]:checked ~ label:before {
+  color: #fff;
+  background-color: #d9534f;
+}
+
+.funkyradio-warning input[type="radio"]:checked ~ label:before,
+.funkyradio-warning input[type="checkbox"]:checked ~ label:before {
+  color: #fff;
+  background-color: #f0ad4e;
+}
+
+.funkyradio-info input[type="radio"]:checked ~ label:before,
+.funkyradio-info input[type="checkbox"]:checked ~ label:before {
+  color: #fff;
+  background-color: #5bc0de;
+}
+
+
+
+/*
+* Adverts page
+*/
+.span8 h1 {
+  color: white;
+  font-size: 24px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.span8 p {
+  font-size: 18px;
+  border-radius: 5px;
+  border: inset white;
+
+  color: white;
+}
+.clear {
+    clear:both;
+}
+
+.btn-info {
+    margin-right:15px;
+    border-radius: 5px;
+    padding:1px;
+    display:block;
+    float:left;
+    font-size: 20px;
+}
+
+.btn-info a:hover {
+    text-decoration: none;
+}
+.btn-info a {
+    display:block;
+
+    width:100%;
+    height:100%;
+    color:#fff;
+}
+.more.label {
+    float:right;
+}
+
+input#textinput_name.form-control.input-md1 {
+  padding: 20px;
+  margin-bottom: 20px;
+  font-size: 18px;
+
+}
+
+input#textinput_name.form-control.input-md2 {
+  padding: 20px;
+  font-size: 18px;
+
+
 }

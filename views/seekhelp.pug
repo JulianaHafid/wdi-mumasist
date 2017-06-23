@@ -2,55 +2,50 @@ extends layout
 block content
   .container.c-seek-help
     // Form Name
-    legend Seek-Help-Form
+    legend Help-Form
     form(action='/seekhelp', method='post')
-    // Text input
-    .form-group
-    label.col-md-2.control-label(for='textinput_name') Name
-    .col-md-4
-      input#textinput_name.form-control.input-md(name='textinput_name', type='text', placeholder='', required='')
-      span
-    // Select Basic
-    .form-group
-    label.col-md-3.control-label(for='select_languageSpoken') Language Spoken
-    .col-md-3
-      select#select_languageSpoken.form-control(name='select_languageSpoken')
-        option(value='1') English
-        option(value='2') Chinese
-        option(value='3') Malay
-        option(value='4') Indian
-    // Prepended checkbox
-    .form-group
-    label.col-md-12.control-label(for='checkbox_babysit') Services
-    .col-md-6
-      .input-group
-        span.input-group-addon
-          input(type='checkbox')
-        input#checkbox_babysit.form-control(name='checkbox_babysit', type='text', placeholder='Babysit')
-    .col-md-6
-      .input-group
-        span.input-group-addon
-          input(type='checkbox')
-        input#checkbox_elderly_care.form-control(name='checkbox_elderly_care', type='text', placeholder='Elderly Care')
-    .col-md-6
-      .input-group
-        span.input-group-addon
-          input(type='checkbox')
-        input#checkbox_household_chore.form-control(name='checkbox_household_chore', type='text', placeholder='Household Chore')
-    .col-md-6
-      .input-group
-        span.input-group-addon
-          input(type='checkbox')
-        input#checkbox_marketing.form-control(name='checkbox_marketing', type='text', placeholder='Marketing')
+      // Text input
+      .form-group
+      label.col-md-12.control-label(for='textinput_name') Subject
+      .col-md-12
+        input#textinput_name.form-control.input-md1(name='subject', type='text', placeholder='', required='')
+        span
+      .form-group
+      label.col-md-1.control-label2(for='textinput_name') Name
+      .col-md-8
+        input#textinput_name.form-control.input-md2(name='name', type='text', placeholder='', required='')
+        span
+      // Prepended checkbox
+      .form-group
+      label.col-md-12.control-label(for='checkboxes') Services
+      .col-md-6
+        .funkyradio
+          .funkyradio-default
+            input#checkbox1(type='checkbox', name='cb_household', checked='')
+            label(for='checkbox1') Household Chores
+      .col-md-6
+        .funkyradio
+          .funkyradio-primary
+            input#checkbox2(type='checkbox', name='cb_babysit')
+            label(for='checkbox2') Babysitting
+      .col-md-6
+        .funkyradio
+          .funkyradio-success
+            input#checkbox3(type='checkbox', name='cb_market')
+            label(for='checkbox3') Marketing
+      .col-md-6
+        .funkyradio
+          .funkyradio-danger
+            input#checkbox4(type='checkbox', name='cb_elderly')
+            label(for='checkbox4') Elderly Care
+      // Textarea
+      .form-group
+      label.col-md-12.control-label(for='textarea_comments') Additional Services/Comments
+      .col-md-6
+        textarea#textarea_comments.form-control(name='comments')
 
-    // Textarea
-    .form-group
-    label.col-md-12.control-label(for='textarea_comments') Additional Services/Comments
-    .col-md-6
-      textarea#textarea_comments.form-control(name='textarea_comments')
-
-    br
-    br
-    .col-md-12
-      button.btn.btn-lg.btn-primary(type='submit')
-        | Post
+      br
+      br
+      .col-md-12
+        button.btn.btn-lg.btn-primary(type='submit')
+          | Post

@@ -1,3 +1,5 @@
+
+var Service    = require('../models/service');
 module.exports = function(app, passport) {
 
 // normal routes ===============================================================
@@ -7,12 +9,6 @@ module.exports = function(app, passport) {
         res.render('index.pug');
     });
 
-    // PROFILE SECTION =========================
-    app.get('/services', isLoggedIn, function(req, res) {
-        res.render('services.pug', {
-            user : req.user
-        });
-    });
 
 
     // LOGOUT ==============================
@@ -24,21 +20,90 @@ module.exports = function(app, passport) {
 // =============================================================================
 // Seek-Help Form  ==================================================
 // =============================================================================
+  // PROFILE SECTION =========================
+  app.get('/services', isLoggedIn, function(req, res) {
+      res.render('services.pug', {
+        user : req.user
+    });
+});
 
-    // Seek-Help form =========================
+
+// =============================================================================
+// Seek-Help Form  ==================================================
+// =============================================================================
+
+    //Seek-Help form =========================
     app.get('/seekhelp', isLoggedIn, function(req, res) {
+        console.log('test');
         res.render('seekhelp.pug', {
             user : req.user
         });
     });
-    
 
+    app.post('/seekhelp', function (req, res) {
 
-    // app.post('/seekhelp', passport.authenticate('local-login', {
-    //     successRedirect : '/services', // redirect to the secure profile section
-    //     failureRedirect : '/login', // redirect back to the signup page if there is an error
-    //     failureFlash : true // allow flash messages
-    // }));
+        const name = req.body.name;
+        const comments = req.body.comments;
+        const subject = req.body.subject;
+        const servicelist_household = req.body.cb_household;
+        const servicelist_market = req.body.cb_market;
+        const servicelist_elderly = req.body.cb_elderly;
+        const servicelist_babysit = req.body.cb_babysit;
+        const servicelist = [];
+        if(servicelist_household)
+        {
+          servicelist.push("household chores")
+        }
+        if(servicelist_babysit)
+        {
+          servicelist.push("babysit")
+        }
+        if(servicelist_elderly)
+        {
+          servicelist.push("elderly care")
+        }
+        if(servicelist_market)
+        {
+          servicelist.push("marketing")
+        }
+        console.log("services: " + servicelist);
+        const service = new Service({
+          name: name,
+          subject: subject,
+          comments: comments,
+          servicelist: servicelist
+
+      });
+
+      service.save((err, service) => {
+
+        if(err){
+          console.log(err);
+          res.render('seekhelp.pug', {
+            title: 'Seek Help'
+          });
+        }
+        res.redirect('/adverts');
+      });
+
+    });
+
+    // =============================================================================
+    // Adverts Page  ==================================================
+    // =============================================================================
+
+        //Seek-Help form =========================
+
+        app.get('/adverts', function(req, res){
+          Service.find(function(err, result) {
+            //console.log("service here: " + result);
+            if (err) return next(err);
+            res.render('adverts.pug', {
+              data : result
+              //servicelist1 : result.servicelist
+            })
+          });
+        });
 
 // =============================================================================
 // AUTHENTICATE (FIRST LOGIN) ==================================================

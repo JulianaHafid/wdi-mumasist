@@ -1,0 +1,19 @@
+extends layout
+block content
+  for element in data
+    .span8
+      h1 #{element.subject}
+      p Comments: #{element.comments}
+      div
+        .tags
+          span.btn-info
+            a(href='#') Posted by: #{element.name}
+          span.btn-info #{element.servicelist}
+             
+      .clear
+      hr
+
+
+
+block scripts
+  script(src='/javascripts/main.js')
