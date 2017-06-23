@@ -478,7 +478,10 @@ seek-help
 .span8 p {
   font-size: 18px;
   border-radius: 5px;
+<<<<<<< HEAD
   border: inset white;
+=======
+>>>>>>> ee5ac8facf63fedbf5892ffa1e3b9359b2505787
 
   color: white;
 }
