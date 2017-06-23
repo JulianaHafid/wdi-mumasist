@@ -1,6 +1,11 @@
 {
   "name": "node-authentication",
   "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "mocha --reporter spec",
+    "postinstall": "npm rebuild node-sass"
+  },
   "dependencies": {
     "bcrypt-nodejs": "latest",
     "body-parser": "~1.15.2",
