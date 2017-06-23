@@ -2,13 +2,7 @@
   "name": "mum-assist",
   "main": "app.js",
   "scripts": {
-<<<<<<< HEAD
     "start": "node app.js"
-=======
-    "start": "node app.js",
-    "test": "mocha --reporter spec",
-    "postinstall": "npm rebuild node-sass"
->>>>>>> ee5ac8facf63fedbf5892ffa1e3b9359b2505787
   },
   "dependencies": {
     "bcrypt-nodejs": "^0.0.3",
