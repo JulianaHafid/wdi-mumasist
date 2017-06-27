@@ -1,27 +1,13 @@
-# Easy Node Authentication
+This application integrates multiple login ( Local, FB, Gmail ). You can fill up the form and all data will be updated on the database. A list of all available services will be displayed once you submit the form.
 
-Code for the entire scotch.io tutorial series: Complete Guide to Node Authentication
+Database:
 
-We will be using Passport to authenticate users locally, with Facebook, Twitter, and Google.
+2 models - User and Services
 
-#### Upgraded To Express 4.0
-This tutorial has been upgraded to use ExpressJS 4.0. See [the commit](https://github.com/scotch-io/easy-node-authentication/commit/020dea057d5a0664caaeb041b18978237528f9a3) for specific changes.
 
-## Instructions
+Instruction:
 
-If you would like to download the code and try it for yourself:
+to run this application on your local host,
+run nodemon
+run npm install
 
-1. Clone the repo: `git clone git@github.com:scotch-io/easy-node-authentication`
-2. Install packages: `npm install`
-3. Change out the database configuration in config/database.js
-4. Change out auth keys in config/auth.js
-5. Launch: `node server.js`
-6. Visit in your browser at: `http://localhost:8080`
-
-## The Tutorials
-
-- [Getting Started and Local Authentication](http://scotch.io/tutorials/easy-node-authentication-setup-and-local)
-- [Facebook](http://scotch.io/tutorials/easy-node-authentication-facebook)
-- [Twitter](http://scotch.io/tutorials/easy-node-authentication-twitter)
-- [Google](http://scotch.io/tutorials/easy-node-authentication-google)
-- [Linking All Accounts Together](http://scotch.io/tutorials/easy-node-authentication-linking-all-accounts-together)
